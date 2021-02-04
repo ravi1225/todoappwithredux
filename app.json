@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "todoapp-with-redux",
-    "slug": "todoapp-with-redux",
+    "name": "todo-app-with-redux",
+    "slug": "todo-app-with-redux",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
