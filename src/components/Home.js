@@ -5,12 +5,12 @@ import Heading from "./Heading";
 import Todo from "./Todo";
 import { Colors } from "./Colors";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <SafeAreaView style={styles.container}>
-      <Heading />
+      <Heading type={props.type} />
       <View>
-        <Todo />
+        <Todo type={props.type} todo={props.todo} />
       </View>
     </SafeAreaView>
   );

@@ -16,8 +16,9 @@ const Todo = (props) => {
   return (
     <View style={styles.firstView}>
       <FlatList
-        data={props.todoList}
+        data={props.todo}
         extraData={props}
+        keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
           <View style={styles.flatlistView}>
             <TouchableOpacity
@@ -101,11 +102,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  return {
-    todoList: state.todos,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     todos: state.todos,
+//     activeTodo:state.ActiveTodo,
+//     completedTodo:state.CompletedTodo,
+//   };
+// };
 
 const mapdispatchToProps = (dispatch) => {
   return {
@@ -113,4 +116,4 @@ const mapdispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapdispatchToProps)(Todo);
+export default connect(null, mapdispatchToProps)(Todo);

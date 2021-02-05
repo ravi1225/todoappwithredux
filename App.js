@@ -1,17 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet,View } from 'react-native';
-import Home from './src/components/Home';
-import { Provider } from 'react-redux';
-import store from './src/Store/configureStore';
+import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
+import { StyleSheet } from "react-native";
+import { Provider } from "react-redux";
+import store from "./src/Store/configureStore";
+import MyTabs from "./src/components/MyTabs";
 
 export default function App() {
   return (
-    <Provider store={ store }>
-    <View style={styles.container}>
-      <Home />
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <NavigationContainer>
+        <MyTabs />
+        <StatusBar style="auto" />
+      </NavigationContainer>
     </Provider>
   );
 }
@@ -19,8 +21,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

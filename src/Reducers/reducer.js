@@ -2,25 +2,32 @@ import { ADD_TODO, CHANGE_STATUS } from "../Constant/index";
 
 const initialTodo = {
   todos: [
-    { text: "abc", key: 1, check: false },
-    { text: "xyz", key: 2, check: true },
-    { text: "mno", key: 3, check: true },
-    { text: "rst", key: 4, check: false },
+    
   ],
 };
 
 const addTodoReducer = (state = initialTodo, action) => {
   switch (action.type) {
     case ADD_TODO: {
-      return {
-        todos: [
-          ...state.todos,
-          { text: action.text, key: Math.random().toString(), check: false },
-        ],
-      };
+      if (action.text.trim().length > 0) {
+        return {
+          todos: [
+            ...state.todos,
+            {
+              text: action.text.trim(),
+              key: Math.random().toString(),
+              check: false,
+            },
+          ],
+        };
+      } else {
+        alert("List can't be empty", [
+          { text: "OK", onPress: () => console.log("Alert Closed") },
+        ]);
+      }
     }
     case CHANGE_STATUS: {
-      const filterList = state.todos.map((val) => {
+      const AllList = state.todos.map((val) => {
         if (val.key == action.key) {
           return {
             ...val,
@@ -33,10 +40,9 @@ const addTodoReducer = (state = initialTodo, action) => {
         }
       });
       return {
-        todos: filterList,
+        todos: AllList,
       };
     }
-
     default:
       return state;
   }
