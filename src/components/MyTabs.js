@@ -1,10 +1,8 @@
-import "react-native-gesture-handler";
 import React, { useState, useEffect } from "react";
 import { SafeAreaView } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home";
 import { connect } from "react-redux";
-import { activeComponent, completedComponent } from "../Actions/Count";
 import { Colors } from "./Colors";
 
 function HomeScreen({ todo }) {
@@ -96,11 +94,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapdispatchToProps = (dispatch) => {
-  return {
-    activeComponent: () => dispatch(activeComponent()),
-    completedComponent: () => dispatch(completedComponent()),
-  };
-};
-
-export default connect(mapStateToProps, mapdispatchToProps)(MyTabs);
+export default connect(mapStateToProps)(MyTabs);

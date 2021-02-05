@@ -1,9 +1,7 @@
 import { ADD_TODO, CHANGE_STATUS } from "../Constant/index";
 
 const initialTodo = {
-  todos: [
-    
-  ],
+  todos: [],
 };
 
 const addTodoReducer = (state = initialTodo, action) => {
@@ -21,9 +19,7 @@ const addTodoReducer = (state = initialTodo, action) => {
           ],
         };
       } else {
-        alert("List can't be empty", [
-          { text: "OK", onPress: () => console.log("Alert Closed") },
-        ]);
+        alert("List can't be empty");
       }
     }
     case CHANGE_STATUS: {

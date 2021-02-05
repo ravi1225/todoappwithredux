@@ -102,14 +102,6 @@ const styles = StyleSheet.create({
   },
 });
 
-// const mapStateToProps = (state) => {
-//   return {
-//     todos: state.todos,
-//     activeTodo:state.ActiveTodo,
-//     completedTodo:state.CompletedTodo,
-//   };
-// };
-
 const mapdispatchToProps = (dispatch) => {
   return {
     changeStatus: (key) => dispatch(changeStatus(key)),
